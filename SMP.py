@@ -26,8 +26,8 @@ if 'data' not in st.session_state:
     st.session_state.data = None
 if 'scaler' not in st.session_state:
     st.session_state.scaler = StandardScaler()
-if 'portfolio' not in st.session_state:
-    st.session_state.portfolio = {}
+# if 'portfolio' not in st.session_state:
+#     st.session_state.portfolio = {}
 
 # Sidebar inputs
 st.sidebar.header('Input Parameters')
@@ -36,16 +36,17 @@ start_date = st.sidebar.date_input('Start Date', date(2020, 1, 1))
 end_date = st.sidebar.date_input('End Date', date.today())
 
 @st.cache_data
-def download_data(symbol, start_date, end_date):
-    try:
-        df = yf.download(symbol, start=start_date, end=end_date, progress=False)
-        if df.empty:
-            st.error(f"No data found for {symbol}")
-            return None
-        return df
-    except Exception as e:
-        st.error(f"Error downloading data: {str(e)}")
-        return None
+# def download_data(symbol):
+#     try:
+#         df = pd.read_csv(r'C:/Users/prana/OneDrive/Desktop/Projects/Stock Market Prediction (new)')
+#         print(df)
+#         if df.empty:
+#             st.error(f"No data found for {symbol}")
+#             return None
+#         return df
+#     except Exception as e:
+#         st.error(f"Error downloading data: {str(e)}")
+#         return None
 
 def plot_chart(data, column, title):
     try:
@@ -293,7 +294,9 @@ def stock_info(symbol):
 
 def main():
     # Download data
-    data = download_data(ticker_symbol, start_date, end_date)
+    # data = download_data(ticker_symbol)
+    data = pd.read_csv(r'C:/Users/prana/OneDrive/Desktop/Projects/Stock Market Prediction (new)')
+    print(data)
     st.session_state.data = data
     
     # Main menu
