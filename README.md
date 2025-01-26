@@ -62,7 +62,7 @@ Copy code
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/pranay_1306/Stock-Market-Prediction.git
+git clone https://github.com/pranay1306/Stock-Price-Predictor-Extended
 cd stock-price-predictor
 ```
 
